@@ -1,42 +1,47 @@
 #include "Model.h"
 
-string x=" ";
-int points=0;
-int level=0;
+#include <utility>
 
-
-void storeString(string n){
-    x=n;
+Model::Model(){
+    x=" ";
+    points=0;
+    level=1;
 }
 
-void storePoints(int n){
+
+
+void Model::storeString(string n){
+    x=std::move(n);
+}
+
+void Model::storePoints(int n){
     points=n;
 }
 
-void storeLevel(int n){
+void Model::storeLevel(int n){
     level=n;
 }
 
-string retriveString(){
+string Model::retriveString(){
     return x;
 }
 
-int retrivePoints(){
+int Model::retrivePoints() const{
     return points;
 }
 
-int retriveLevel(){
+int Model::retriveLevel() const{
     return level;
 }
 
-void addLevel(){
-    level=points/5;
+void Model::addLevel(){
+    level=(points/5)+1;
     storePoints(points);
     storeLevel(level);
 
 }
 
-void addPoints(){
+void Model::addPoints(){
     points+=1;
     storePoints(points);
     if(points%5==0){

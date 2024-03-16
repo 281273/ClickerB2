@@ -7,11 +7,12 @@ using namespace std;
 
 class View {
 private:
-
+    static string int_to_roman(int a);
 public:
-    void prompt(int i);
-    void prompt(string s);
-    string getInput();
+    static void prompt(int i);
+    static void prompt(const string& s);
+    static void promptRoman(int i);
+    static string getInput();
 
 };
 

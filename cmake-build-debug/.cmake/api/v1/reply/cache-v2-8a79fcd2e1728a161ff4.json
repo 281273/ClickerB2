@@ -659,7 +659,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "C:/Program Files (x86)/ClickerB2"
+			"value" : "C:/Program Files (x86)/ClickerB"
 		},
 		{
 			"name" : "CMAKE_LINKER",
@@ -875,7 +875,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "ClickerB2"
+			"value" : "ClickerB"
 		},
 		{
 			"name" : "CMAKE_RANLIB",
@@ -1270,7 +1270,7 @@
 			"value" : "FALSE"
 		},
 		{
-			"name" : "ClickerB2_BINARY_DIR",
+			"name" : "ClickerB_BINARY_DIR",
 			"properties" : 
 			[
 				{
@@ -1282,7 +1282,7 @@
 			"value" : "D:/Code/C++Projects/ClickerB2/cmake-build-debug"
 		},
 		{
-			"name" : "ClickerB2_IS_TOP_LEVEL",
+			"name" : "ClickerB_IS_TOP_LEVEL",
 			"properties" : 
 			[
 				{
@@ -1294,7 +1294,7 @@
 			"value" : "ON"
 		},
 		{
-			"name" : "ClickerB2_SOURCE_DIR",
+			"name" : "ClickerB_SOURCE_DIR",
 			"properties" : 
 			[
 				{

@@ -11,12 +11,13 @@ private:
     int points;
     int level;
 public:
+    Model();
     void storeString(string n);
     void storePoints(int n);
     void storeLevel(int n);
     string retriveString();
-    int retrivePoints();
-    int retriveLevel();
+    [[nodiscard]] int retrivePoints() const;
+    [[nodiscard]] int retriveLevel() const;
     void addPoints();
     void addLevel();
 

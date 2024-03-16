@@ -11,7 +11,7 @@
 # =============================================================================
 
 # =============================================================================
-# Project: ClickerB2
+# Project: ClickerB
 # Configurations: Debug
 # =============================================================================
 
@@ -41,40 +41,64 @@ include CMakeFiles/rules.ninja
 
 cmake_ninja_workdir = D$:/Code/C++Projects/ClickerB2/cmake-build-debug/
 # =============================================================================
-# Object build statements for EXECUTABLE target ClickerB2
+# Object build statements for EXECUTABLE target ClickerB
 
 
 #############################################
-# Order-only phony target for ClickerB2
+# Order-only phony target for ClickerB
 
-build cmake_object_order_depends_target_ClickerB2: phony || CMakeFiles/ClickerB2.dir
+build cmake_object_order_depends_target_ClickerB: phony || CMakeFiles/ClickerB.dir
 
-build CMakeFiles/ClickerB2.dir/main.cpp.obj: CXX_COMPILER__ClickerB2_unscanned_Debug D$:/Code/C++Projects/ClickerB2/main.cpp || cmake_object_order_depends_target_ClickerB2
-  DEP_FILE = CMakeFiles\ClickerB2.dir\main.cpp.obj.d
+build CMakeFiles/ClickerB.dir/main.cpp.obj: CXX_COMPILER__ClickerB_unscanned_Debug D$:/Code/C++Projects/ClickerB2/main.cpp || cmake_object_order_depends_target_ClickerB
+  DEP_FILE = CMakeFiles\ClickerB.dir\main.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\ClickerB2.dir
-  OBJECT_FILE_DIR = CMakeFiles\ClickerB2.dir
-  TARGET_COMPILE_PDB = CMakeFiles\ClickerB2.dir\
-  TARGET_PDB = ClickerB2.pdb
+  OBJECT_DIR = CMakeFiles\ClickerB.dir
+  OBJECT_FILE_DIR = CMakeFiles\ClickerB.dir
+  TARGET_COMPILE_PDB = CMakeFiles\ClickerB.dir\
+  TARGET_PDB = ClickerB.pdb
+
+build CMakeFiles/ClickerB.dir/Controller.cpp.obj: CXX_COMPILER__ClickerB_unscanned_Debug D$:/Code/C++Projects/ClickerB2/Controller.cpp || cmake_object_order_depends_target_ClickerB
+  DEP_FILE = CMakeFiles\ClickerB.dir\Controller.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\ClickerB.dir
+  OBJECT_FILE_DIR = CMakeFiles\ClickerB.dir
+  TARGET_COMPILE_PDB = CMakeFiles\ClickerB.dir\
+  TARGET_PDB = ClickerB.pdb
+
+build CMakeFiles/ClickerB.dir/Model.cpp.obj: CXX_COMPILER__ClickerB_unscanned_Debug D$:/Code/C++Projects/ClickerB2/Model.cpp || cmake_object_order_depends_target_ClickerB
+  DEP_FILE = CMakeFiles\ClickerB.dir\Model.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\ClickerB.dir
+  OBJECT_FILE_DIR = CMakeFiles\ClickerB.dir
+  TARGET_COMPILE_PDB = CMakeFiles\ClickerB.dir\
+  TARGET_PDB = ClickerB.pdb
+
+build CMakeFiles/ClickerB.dir/View.cpp.obj: CXX_COMPILER__ClickerB_unscanned_Debug D$:/Code/C++Projects/ClickerB2/View.cpp || cmake_object_order_depends_target_ClickerB
+  DEP_FILE = CMakeFiles\ClickerB.dir\View.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\ClickerB.dir
+  OBJECT_FILE_DIR = CMakeFiles\ClickerB.dir
+  TARGET_COMPILE_PDB = CMakeFiles\ClickerB.dir\
+  TARGET_PDB = ClickerB.pdb
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target ClickerB2
+# Link build statements for EXECUTABLE target ClickerB
 
 
 #############################################
-# Link the executable ClickerB2.exe
+# Link the executable ClickerB.exe
 
-build ClickerB2.exe: CXX_EXECUTABLE_LINKER__ClickerB2_Debug CMakeFiles/ClickerB2.dir/main.cpp.obj
+build ClickerB.exe: CXX_EXECUTABLE_LINKER__ClickerB_Debug CMakeFiles/ClickerB.dir/main.cpp.obj CMakeFiles/ClickerB.dir/Controller.cpp.obj CMakeFiles/ClickerB.dir/Model.cpp.obj CMakeFiles/ClickerB.dir/View.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
-  OBJECT_DIR = CMakeFiles\ClickerB2.dir
+  OBJECT_DIR = CMakeFiles\ClickerB.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_COMPILE_PDB = CMakeFiles\ClickerB2.dir\
-  TARGET_FILE = ClickerB2.exe
-  TARGET_IMPLIB = libClickerB2.dll.a
-  TARGET_PDB = ClickerB2.pdb
+  TARGET_COMPILE_PDB = CMakeFiles\ClickerB.dir\
+  TARGET_FILE = ClickerB.exe
+  TARGET_IMPLIB = libClickerB.dll.a
+  TARGET_PDB = ClickerB.pdb
 
 
 #############################################
@@ -102,7 +126,7 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
-build ClickerB2: phony ClickerB2.exe
+build ClickerB: phony ClickerB.exe
 
 # =============================================================================
 # Folder targets.
@@ -112,7 +136,7 @@ build ClickerB2: phony ClickerB2.exe
 #############################################
 # Folder: D:/Code/C++Projects/ClickerB2/cmake-build-debug
 
-build all: phony ClickerB2.exe
+build all: phony ClickerB.exe
 
 # =============================================================================
 # Built-in targets
