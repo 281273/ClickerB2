@@ -16,6 +16,7 @@ Controller::Controller(View& _view,Model& _model):view(_view),model(_model){
 }
 
 void Controller::createSave() {
+
     int points = model.retrivePoints();
     int level = model.retriveLevel();
     ofstream myfile ("save.txt");
@@ -29,18 +30,27 @@ void Controller::createSave() {
 }
 
 void Controller::loadSave() {
-    int points;
-    int level;
-    ifstream file("save.txt");
-    string line;
+    int scorePoints;
+    int scoreLevel;
 
-    getline(file, line);
-    istringstream issline(line);
-    issline >> points;
-    issline >> level;
-    model.storePoints(points);
-    model.storeLevel(level);
+        ifstream file("save.txt");
+        string line;
 
+        getline(file, line);
+        istringstream issline(line);
+        issline >> scorePoints;
+        issline >> scoreLevel;
+        model.storePoints(scorePoints);
+        model.storeLevel(scoreLevel);
+
+    int points=model.retrivePoints();
+    string Rlevel=model.retriveRomanLevel();
+    view.prompt("Game loaded successfully:\n Your present points:");
+    view.prompt("\n Points: ");
+    view.prompt(points);
+    view.prompt("\t Level: ");
+    view.prompt(Rlevel);
+    view.prompt("\n\n");
     //view.prompt(points);
     //view.prompt("\n");
     //view.prompt(level);
@@ -55,16 +65,6 @@ void Controller::menuInput(){
         }
         else if(playerInput==loadGameInput){
             loadSave();
-
-            int points=model.retrivePoints();
-            string Rlevel=model.retriveRomanLevel();
-            view.prompt("Game loaded successfully:\n Your present points:");
-            view.prompt("\n Points: ");
-            view.prompt(points);
-            view.prompt("\t Level: ");
-            view.prompt(Rlevel);
-            view.prompt("\n\n");
-
             game();
         }
         else if(playerInput==exitInput){
