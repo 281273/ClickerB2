@@ -6,19 +6,38 @@
 
 #include <iostream>
 #include <string>
-//#include <conio.h> not in CLion
+#include <fstream>
+#include <sstream>
+#include <cstdlib>
+
 using namespace std;
+//#include <conio.h> not in CLion
+
 
 class Controller {
 private:
-    View* view;
-    Model* model;
-    bool koniec;
+    View& view;
+    Model& model;
 
+    bool koniec;
+    char addPointInput;
+    char saveExitInput;
+    char noSaveExitInput;
+    char newGameInput;
+    char loadGameInput;
+    char instructionInput;
+    char exitInput;
+
+    void menuInput();
+    void gameInput();
+    void createSave();
+    void loadSave();
+
+    void game();
 public:
-    Controller(View* _view,Model* _model);
-    void checkStats();
-    void launch();
+    Controller(View& _view,Model& _model);
+
+    void menu();
 };
 
 

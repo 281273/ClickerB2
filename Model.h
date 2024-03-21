@@ -7,17 +7,17 @@ using namespace std;
 
 class Model {
 private:
-    string x;
     int points;
     int level;
+
+    string int_to_roman(int a);
 public:
-    Model();
-    void storeString(string n);
+    Model(int points,int level);
     void storePoints(int n);
     void storeLevel(int n);
-    string retriveString();
-    [[nodiscard]] int retrivePoints() const;
+    [[nodiscard]] int retrivePoints() const ;
     [[nodiscard]] int retriveLevel() const;
+    string retriveRomanLevel();
     void addPoints();
     void addLevel();
 

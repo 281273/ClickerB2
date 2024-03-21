@@ -2,9 +2,9 @@
 
 int main() {
     View view;
-    Model model;
-    Controller controller(&view , &model);
-    controller.launch();
+    Model model(0,1);
+    Controller controller(view , model);
+    controller.menu();
     return 0;
 }
 
