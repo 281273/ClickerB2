@@ -31,7 +31,7 @@ private:
     void menuInput();
     void gameInput();
     void createSave();
-    void loadSave();
+    bool loadSave();
 
     void game();
 public:

@@ -5,14 +5,15 @@ Controller::Controller(View& _view,Model& _model):view(_view),model(_model){
 
     koniec=false;
 
-    addPointInput='b';
-    saveExitInput='e';
-    noSaveExitInput='r';
-
     newGameInput='1';
     loadGameInput='2';
     exitInput='3';
+
+    addPointInput='b';
+    saveExitInput='e';
+    noSaveExitInput='r';
     instructionInput='i';
+
 }
 
 void Controller::createSave() {
@@ -26,16 +27,20 @@ void Controller::createSave() {
 
         myfile.close();
     }
-    else cout << "Unable to open file";
+    else view.prompt("Unable to open file\n") ;
 }
 
-void Controller::loadSave() {
-    int scorePoints;
-    int scoreLevel;
+bool Controller::loadSave() {
 
-        ifstream file("save.txt");
-        string line;
+    int scorePoints=0;
+    int scoreLevel=1;
 
+    ifstream file("save.txt");
+    string line;
+    if(!file.is_open()){
+        view.prompt("Unable to load save!\n");
+        return false;
+    }else{
         getline(file, line);
         istringstream issline(line);
         issline >> scorePoints;
@@ -43,38 +48,44 @@ void Controller::loadSave() {
         model.storePoints(scorePoints);
         model.storeLevel(scoreLevel);
 
-    int points=model.retrivePoints();
-    string Rlevel=model.retriveRomanLevel();
-    view.prompt("Game loaded successfully:\n Your present points:");
-    view.prompt("\n Points: ");
-    view.prompt(points);
-    view.prompt("\t Level: ");
-    view.prompt(Rlevel);
-    view.prompt("\n\n");
-    //view.prompt(points);
-    //view.prompt("\n");
-    //view.prompt(level);
+        int points=model.retrivePoints();
+        string Rlevel=model.retriveRomanLevel();
+        view.prompt("Game loaded successfully:\n Your present points:");
+        view.prompt("\n Points: ");
+        view.prompt(points);
+        view.prompt("\t Level: ");
+        view.prompt(Rlevel);
+        view.prompt("\n\n");
+        //view.prompt(points);
+        //view.prompt("\n");
+        //view.prompt(level);
+        return true;
+    }
+
+
 }
 
 
 void Controller::menuInput(){
-    char playerInput=view.getInput();
+    while(true){
+        view.prompt("\nMENU\nPress [1-3]\n1.New Game\n2.Load Game\n3.Exit\n");
+        char playerInput=view.getInput();
 
         if(playerInput==newGameInput){
             game();
         }
         else if(playerInput==loadGameInput){
-            loadSave();
-            game();
+            if(loadSave()){
+                game();
+            }
         }
         else if(playerInput==exitInput){
             exit(0);
         }
         else{
-            view.prompt("Unexpected input");
+            view.prompt("Unexpected input\n");
         }
-
-
+    }
 }
 
 void Controller::gameInput(){
@@ -110,7 +121,7 @@ void Controller::gameInput(){
 }
 
 void Controller::menu(){
-    view.prompt("Press [1-2]\n1.New Game\n2.Load Game\n3.Exit\n");
+
     menuInput();
 }
 
@@ -119,7 +130,8 @@ void Controller::game(){
     view.prompt("Instructions: \n (b-> +1pkt , e-> wyjscie ,Kazde 5 pkt to +1lv) \n\n ");
 
     while(!koniec){
-        //Funkcjonalnosc
+        //Znak
+        //system("cls");
 
         gameInput();
 
@@ -132,7 +144,6 @@ void Controller::game(){
         view.prompt("\t Level: ");
         view.prompt(Rlevel);
         view.prompt("\n");
-
     }
 }
 
