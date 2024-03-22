@@ -10,3 +10,4 @@ add_executable(ClickerB main.cpp
         Model.h
         View.cpp
         View.h)
+
