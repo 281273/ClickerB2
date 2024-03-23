@@ -11,7 +11,7 @@
 #include <cstdlib>
 
 using namespace std;
-//#include <conio.h> not in CLion
+#include <conio.h>
 
 
 class Controller {
@@ -28,7 +28,6 @@ private:
     char instructionInput;
     char exitInput;
 
-    void menuInput();
     void gameInput();
     void createSave();
     bool loadSave();
@@ -36,7 +35,6 @@ private:
     void game();
 public:
     Controller(View& _view,Model& _model);
-
     void menu();
 };
 

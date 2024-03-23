@@ -66,7 +66,7 @@ bool Controller::loadSave() {
 }
 
 
-void Controller::menuInput(){
+void Controller::menu(){
     while(true){
         view.prompt("\nMENU\nPress [1-3]\n1.New Game\n2.Load Game\n3.Exit\n");
         char playerInput=view.getInput();
@@ -120,18 +120,13 @@ void Controller::gameInput(){
     }
 }
 
-void Controller::menu(){
-
-    menuInput();
-}
 
 void Controller::game(){
-
+    koniec=false;
     view.prompt("Instructions: \n (b-> +1pkt , e-> wyjscie ,Kazde 5 pkt to +1lv) \n\n ");
 
     while(!koniec){
         //Znak
-        //system("cls");
 
         gameInput();
 
