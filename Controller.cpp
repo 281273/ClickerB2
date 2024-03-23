@@ -123,7 +123,7 @@ void Controller::gameInput(){
 
 void Controller::game(){
     koniec=false;
-    view.prompt("Instructions: \n (b-> +1pkt , e-> wyjscie ,Kazde 5 pkt to +1lv) \n\n ");
+    view.prompt("Instructions: \n (b-> +1pkt , e-> Save & Exit , r-> Exit W/o Saving, Every 5 pkt equals +1lv) \n");
 
     while(!koniec){
         //Znak
