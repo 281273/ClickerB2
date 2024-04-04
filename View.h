@@ -11,7 +11,7 @@ private:
 
 public:
     void prompt(int i);
-    void prompt(string s);
+    void prompt(const string& s);
     char getInput();
 
 };

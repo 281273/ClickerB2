@@ -9,5 +9,6 @@ add_executable(ClickerB main.cpp
         Model.cpp
         Model.h
         View.cpp
-        View.h)
+        View.h
+        KeyBinding.cpp)
 

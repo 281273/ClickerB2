@@ -4,7 +4,7 @@ void View::prompt(int i){
     cout<<i;
 }
 
-void View::prompt(string s){
+void View::prompt(const string& s){
     cout<<s;
 }
 

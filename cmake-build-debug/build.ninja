@@ -73,6 +73,12 @@ build CMakeFiles/ClickerB.dir/View.cpp.obj: CXX_COMPILER__ClickerB_unscanned_Deb
   OBJECT_DIR = CMakeFiles\ClickerB.dir
   OBJECT_FILE_DIR = CMakeFiles\ClickerB.dir
 
+build CMakeFiles/ClickerB.dir/KeyBinding.cpp.obj: CXX_COMPILER__ClickerB_unscanned_Debug D$:/Code/C++Projects/ClickerB2/KeyBinding.cpp || cmake_object_order_depends_target_ClickerB
+  DEP_FILE = CMakeFiles\ClickerB.dir\KeyBinding.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\ClickerB.dir
+  OBJECT_FILE_DIR = CMakeFiles\ClickerB.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target ClickerB
@@ -81,7 +87,7 @@ build CMakeFiles/ClickerB.dir/View.cpp.obj: CXX_COMPILER__ClickerB_unscanned_Deb
 #############################################
 # Link the executable ClickerB.exe
 
-build ClickerB.exe: CXX_EXECUTABLE_LINKER__ClickerB_Debug CMakeFiles/ClickerB.dir/main.cpp.obj CMakeFiles/ClickerB.dir/Controller.cpp.obj CMakeFiles/ClickerB.dir/Model.cpp.obj CMakeFiles/ClickerB.dir/View.cpp.obj
+build ClickerB.exe: CXX_EXECUTABLE_LINKER__ClickerB_Debug CMakeFiles/ClickerB.dir/main.cpp.obj CMakeFiles/ClickerB.dir/Controller.cpp.obj CMakeFiles/ClickerB.dir/Model.cpp.obj CMakeFiles/ClickerB.dir/View.cpp.obj CMakeFiles/ClickerB.dir/KeyBinding.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\ClickerB.dir

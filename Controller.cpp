@@ -1,68 +1,9 @@
 #include "Controller.h"
 
 
-Controller::Controller(View& _view,Model& _model):view(_view),model(_model){
+Controller::Controller(View& _view,Model& _model,KeyBinding& _keybinding):view(_view),model(_model),keybinding(_keybinding){
 
     koniec=false;
-
-    newGameInput='1';
-    loadGameInput='2';
-    exitInput='3';
-
-    addPointInput='b';
-    saveExitInput='e';
-    noSaveExitInput='r';
-    instructionInput='i';
-
-}
-
-void Controller::createSave() {
-
-    int points = model.retrivePoints();
-    int level = model.retriveLevel();
-    ofstream myfile ("save.txt");
-    if (myfile.is_open())
-    {
-        myfile << points <<" "<<level<<"\n";
-
-        myfile.close();
-    }
-    else view.prompt("Unable to open file\n") ;
-}
-
-bool Controller::loadSave() {
-
-    int scorePoints=0;
-    int scoreLevel=1;
-
-    ifstream file("save.txt");
-    string line;
-    if(!file.is_open()){
-        view.prompt("Unable to load save!\n");
-        return false;
-    }else{
-        getline(file, line);
-        istringstream issline(line);
-        issline >> scorePoints;
-        issline >> scoreLevel;
-        model.storePoints(scorePoints);
-        model.storeLevel(scoreLevel);
-
-        int points=model.retrivePoints();
-        string Rlevel=model.retriveRomanLevel();
-        view.prompt("Game loaded successfully:\n Your present points:");
-        view.prompt("\n Points: ");
-        view.prompt(points);
-        view.prompt("\t Level: ");
-        view.prompt(Rlevel);
-        view.prompt("\n\n");
-        //view.prompt(points);
-        //view.prompt("\n");
-        //view.prompt(level);
-        return true;
-    }
-
-
 }
 
 
@@ -71,15 +12,20 @@ void Controller::menu(){
         view.prompt("\nMENU\nPress [1-3]\n1.New Game\n2.Load Game\n3.Exit\n");
         char playerInput=view.getInput();
 
-        if(playerInput==newGameInput){
+        if(playerInput==keybinding.newGameInput){
+            model.storePoints(0);
+            model.storeLevel(1);
             game();
         }
-        else if(playerInput==loadGameInput){
-            if(loadSave()){
+        else if(playerInput==keybinding.loadGameInput){
+            if(model.loadSave()){
+                view.prompt("Game loaded successfully:\n");
                 game();
+            }else{
+                view.prompt("Unable to load save!\n");
             }
         }
-        else if(playerInput==exitInput){
+        else if(playerInput==keybinding.exitInput){
             exit(0);
         }
         else{
@@ -92,7 +38,7 @@ void Controller::gameInput(){
     char playerInput=view.getInput();
     int oldLevel=model.retriveLevel();
 
-    if(playerInput==addPointInput){
+    if(playerInput==keybinding.addPointInput){
         model.addPoints();
         view.prompt("+1pkt \t");
         int level=model.retriveLevel();
@@ -101,18 +47,18 @@ void Controller::gameInput(){
         }
     }
     //Save and exit
-    else if(playerInput==saveExitInput){
-        createSave();
+    else if(playerInput==keybinding.saveExitInput){
+        model.createSave();
         koniec=true;
         view.prompt("\n Koniec gry. Twoj wynik ostateczny to: \n");
     }
     //No save exit
-    else if(playerInput==noSaveExitInput){
+    else if(playerInput==keybinding.noSaveExitInput){
         koniec=true;
         view.prompt("\n Koniec gry. Twoj wynik ostateczny to: \n");
     }
     //Przypomnienie
-    else if(playerInput==instructionInput){
+    else if(playerInput==keybinding.instructionInput){
         view.prompt("Instructions: \n (b-> +1pkt , e-> Save & Exit , r-> Exit W/o Saving, Every 5 pkt equals +1lv) \n");
     }
     else{
@@ -126,19 +72,20 @@ void Controller::game(){
     view.prompt("Instructions: \n (b-> +1pkt , e-> Save & Exit , r-> Exit W/o Saving, Every 5 pkt equals +1lv) \n");
 
     while(!koniec){
-        //Znak
-
-        gameInput();
-
         //Wypisanie
         int points=model.retrivePoints();
         string Rlevel=model.retriveRomanLevel();
-
+        view.prompt("\nCurrent score:");
         view.prompt("\n Points: ");
         view.prompt(points);
         view.prompt("\t Level: ");
         view.prompt(Rlevel);
         view.prompt("\n");
+
+        //Znak
+        gameInput();
+
+
     }
 }
 

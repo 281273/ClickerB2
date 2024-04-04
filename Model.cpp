@@ -56,5 +56,37 @@ void Model::addPoints(){
     }
 }
 
+void Model::createSave() const {
 
+    ofstream myfile ("save.txt");
+    if (myfile.is_open())
+    {
+        myfile << points <<" "<<level<<"\n";
+
+        myfile.close();
+    }
+    //else view.prompt("Unable to open file\n") ;
+}
+
+bool Model::loadSave() {
+
+    int scorePoints=0;
+    int scoreLevel=1;
+
+    ifstream file("save.txt");
+    string line;
+    if(!file.is_open()){
+
+        return false;
+    }else{
+        getline(file, line);
+        istringstream issline(line);
+        issline >> scorePoints;
+        issline >> scoreLevel;
+        storePoints(scorePoints);
+        storeLevel(scoreLevel);
+
+        return true;
+    }
+}
 

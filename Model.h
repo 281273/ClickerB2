@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include <string>
+#include <fstream>
+#include <sstream>
 using namespace std;
 
 class Model {
@@ -20,8 +22,8 @@ public:
     string retriveRomanLevel();
     void addPoints();
     void addLevel();
-
-
+    void createSave() const;
+    bool loadSave();
 };
 
 
